@@ -3,7 +3,6 @@
 /**
  * push - Pushes an element onto the stack
  * @stack: Double pointer to the head of the stack
- * @line_number: Current line number in the Monty bytecode file
  * @value: Value to push onto the stack
  */
 void push(stack_t **stack, int value)

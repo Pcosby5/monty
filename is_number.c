@@ -7,19 +7,19 @@
  */
 int is_number(const char *str)
 {
-    int i = 0;
+	int i = 0;
 
-    if (str == NULL || *str == '\0')
-        return 0;
+	if (str == NULL || *str == '\0')
+		return (0);
 
-    if (str[i] == '-' || str[i] == '+')
-        i++;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
 
-    for (; str[i] != '\0'; i++)
-    {
-        if (!isdigit(str[i]))
-            return 0;
-    }
+	for (; str[i] != '\0'; i++)
+	{
+		if (!isdigit(str[i]))
+			return (0);
+	}
 
-    return 1;
+	return (1);
 }
