@@ -16,39 +16,32 @@ void execute_opcode(stack_t **stack, unsigned int line_number, char *opcode,
 	{
 		char *arg = strtok(NULL, " \t\n");
 
-		if (arg == NULL || !is_number(arg))
-		{
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
-			free_stack(stack);
-			free(line);
-			fclose(file);
-			exit(EXIT_FAILURE);
-		}
-		push(stack, atoi(arg));
+		handle_push(stack, line_number, arg);
 	}
+
 	else if (strcmp(opcode, "pall") == 0)
 	{
-		pall(stack, line_number);
+		handle_pall(stack, line_number);
 	}
 	else if (strcmp(opcode, "pint") == 0)
 	{
-		pint(stack, line_number);
+		handle_pint(stack, line_number);
 	}
 	else if (strcmp(opcode, "pop") == 0)
 	{
-		pop(stack, line_number);
+		handle_pop(stack, line_number);
 	}
 	else if (strcmp(opcode, "swap") == 0)
 	{
-		swap(stack, line_number);
+		handle_swap(stack, line_number);
 	}
 	else if (strcmp(opcode, "add") == 0)
 	{
-		add(stack, line_number);
+		handle_add(stack, line_number);
 	}
 	else if (strcmp(opcode, "nop") == 0)
 	{
-		nop(stack, line_number);
+		handle_nop(stack, line_number);
 	}
 	else
 	{
